@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { NyhedContext } from '../context/NyhedContext'
+import { Link } from 'react-router-dom'
 
 const Nyheder = (props) => {
 
@@ -10,7 +11,7 @@ const Nyheder = (props) => {
             return (
                 <article key={n.id}>
                     <h2>{n.title}</h2>
-                    <p>{n.body}</p>
+                    <p>{n.body.substring(0,6)} ...<Link to={"/nyhed/" + n.id}>Læs mere</Link></p>
                     <button onClick={() => sletNyhed(n.id)}>Slet dennne nyhed</button>
                     {/* {n.content.map((paragraph, i) => (
                 <p key={i}>{paragraph}</p>))} */}

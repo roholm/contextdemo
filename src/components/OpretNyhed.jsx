@@ -23,9 +23,13 @@ const OpretNyhed = (props) => {
             <h2>Her er OpretNyhed</h2>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Overskrift" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                <br/>
                 <input type="text" placeholder="Nyheds tekst" value={body} onChange={(e) => setBody(e.target.value)}/>
+                <br/>
                 <input type="submit" value="Gem nyheden" />
             </form>
+            <br/>
+            <hr/>
             <Nyheder />
         </div>
     )

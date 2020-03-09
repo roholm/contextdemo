@@ -6,6 +6,7 @@ export const NyhedContext = createContext();
 
 const NyhedContextProvider = (props) => {
     //state indsætte her
+    //taget fra https://jsonplaceholder.typicode.com/posts
     const [nyheder, setNyheder] = useState([
         {
             "userId": 1,
@@ -34,14 +35,17 @@ const NyhedContextProvider = (props) => {
         setNyheder([...nyheder, { id, name: title, title, body }]);
 
     }
-    // todo slet nyhed
+    // slet nyhed
     const sletNyhed = (ID) =>{
         setNyheder(nyheder.filter(n=>n.id !== ID)); //filtrere den nyhed fra der har ID
     }
-    // todo find nyhed ud fra id
+    //  find nyhed ud fra id
+    const findNyhed = (ID) =>{
+        return nyheder.find(n => n.id === ID);
+    }
 
     return (
-        <NyhedContext.Provider value={{ nyheder, tilfoejNyhed, sletNyhed }}>
+        <NyhedContext.Provider value={{ nyheder, tilfoejNyhed, sletNyhed, findNyhed }}>
             {props.children}
         </NyhedContext.Provider>
     )
